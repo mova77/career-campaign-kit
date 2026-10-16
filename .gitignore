@@ -1,0 +1,20 @@
+# Raw personal documents stay local
+profile/sources/*
+!profile/sources/.gitkeep
+!profile/sources/README.md
+
+# Rendered output
+cv/out/
+applications/*/out/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

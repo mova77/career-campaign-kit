@@ -1,0 +1,84 @@
+# Fictional 25-year veteran CV: highlights up front, last ~15 years in detail,
+# earlier career compressed to one-liners, no graduation year.
+lang: en
+stage: senior
+
+person:
+  name: Jordan Placeholder
+  headline: Operations Director · Manufacturing & Supply Chain · Turnarounds and plant start-ups
+  location: Poznań, Poland
+  email: jordan.placeholder@example.com
+  phone: "+48 600 111 222"
+  linkedin: linkedin.com/in/jordan-placeholder
+
+summary: >
+  Operations leader with 25 years in automotive and industrial manufacturing, the last 12 in
+  multi-site director roles. Known for stabilising underperforming plants and building
+  leadership teams that stay. Seeking a COO or VP Operations role in a mid-size manufacturer.
+
+highlights:
+  - Turned around a 900-person plant from −4 % to +7 % EBIT margin in 30 months.
+  - Led the greenfield start-up of a second site, on time and 6 % under a €40M capex budget.
+  - Grew 11 direct reports into plant-manager roles across three countries.
+
+experience:
+  - title: Operations Director, Central Europe
+    company: Northwind Industrial
+    location: Poznań
+    start: 2018-01
+    end: present
+    context: 3 plants, 2,400 employees, €520M revenue
+    bullets:
+      - Accountable for safety, quality, cost and delivery across 3 plants in PL and CZ.
+      - Cut lost-time incident rate by 62 % through a site-led behavioural safety programme.
+      - Consolidated two warehouses into one regional hub, releasing €8M working capital.
+  - title: Plant Manager
+    company: Northwind Industrial
+    location: Września
+    start: 2013-04
+    end: 2017-12
+    bullets:
+      - Took over a loss-making plant (900 people) and returned it to profit within 30 months.
+      - Introduced daily-management tiers that raised OEE from 61 % to 78 %.
+  - title: Production Manager
+    company: Contoso Automotive
+    location: Poznań
+    start: 2008-02
+    end: 2013-03
+    bullets:
+      - Ran 3-shift assembly (350 people); launched 4 new models with zero line-stop launches.
+
+earlier_career:
+  - title: Lean Manufacturing Lead
+    company: Contoso Automotive
+    start: 2004
+    end: 2008
+  - title: Process Engineer
+    company: Fabrikam Components
+    start: 2000
+    end: 2004
+
+education:
+  - degree: Executive MBA
+    institution: Poznań University of Economics and Business
+  - degree: MSc Mechanical Engineering
+    institution: Poznań University of Technology
+
+skills:
+  - group: Leadership
+    items: [Multi-site P&L, Turnarounds, Greenfield start-ups, Works-council negotiation]
+  - group: Operations
+    items: [Lean / TPM, IATF 16949, S&OP, SAP PP/MM]
+
+languages:
+  - name: Polish
+    level: native
+  - name: English
+    level: C2
+  - name: German
+    level: B2
+
+certifications:
+  - name: Lean Six Sigma Black Belt
+    issuer: ASQ
+    year: 2009

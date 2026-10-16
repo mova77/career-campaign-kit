@@ -1,0 +1,77 @@
+# Fictional first-job CV: education and projects lead, no full-time employment yet.
+lang: en
+stage: first-job
+
+person:
+  name: Sam Sample
+  headline: Junior Data Analyst · BSc Economics · SQL, Python, Power BI
+  location: Wrocław, Poland
+  email: sam.sample@example.com
+  linkedin: linkedin.com/in/sam-sample
+
+summary: >
+  Economics graduate who has used data in every project so far, from a thesis on regional
+  housing prices to running the finances of a 40-member student association. Looking for
+  a junior analyst role where I can turn messy data into decisions.
+
+education:
+  - degree: BSc Economics
+    institution: Wrocław University of Economics
+    start: 2022
+    end: 2026
+    details: "Thesis: Drivers of housing prices in Lower Silesia, 2010–2024 (grade 5.0)"
+    bullets:
+      - Coursework — econometrics, statistics, databases, data visualisation.
+      - Erasmus semester at Universidade do Porto (2024/25), all courses in English.
+
+projects:
+  - title: Housing price model (thesis)
+    role: Sole author
+    start: 2025-10
+    end: 2026-06
+    bullets:
+      - Built a panel regression on 14 years of public transaction data in Python (pandas, statsmodels).
+      - Published the cleaning pipeline and dashboard on GitHub; reused by two classmates.
+  - title: Student association budget dashboard
+    role: Treasurer
+    start: 2024-02
+    end: 2025-06
+    bullets:
+      - Replaced a paper ledger with a Power BI dashboard tracking a PLN 60k annual budget.
+
+experience:
+  - title: Data Intern (summer)
+    company: Fabrikam Logistics
+    location: Wrocław
+    start: 2025-07
+    end: 2025-09
+    bullets:
+      - Automated a weekly delivery-delay report in SQL, saving the ops team ~3 h per week.
+  - title: Barista (part-time)
+    company: Café Contoso
+    start: 2022-10
+    end: 2024-06
+    bullets:
+      - Trained 4 new staff; handled cash-up and stock counts during weekend shifts.
+
+volunteering:
+  - title: Maths tutor
+    company: Local youth centre
+    start: 2023-01
+    end: present
+    bullets:
+      - Weekly tutoring for secondary-school students preparing for the matura exam.
+
+skills:
+  - group: Data
+    items: [SQL, Python (pandas), Power BI, Excel, Statistics]
+  - group: Working
+    items: [Presenting to non-technical audiences, Teamwork across cultures]
+
+languages:
+  - name: Polish
+    level: native
+  - name: English
+    level: C1
+  - name: Portuguese
+    level: A2

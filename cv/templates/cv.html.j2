@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="{{ cv.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ cv.person.name }} — CV</title>
+<style>
+{{ css | safe }}
+:root { --accent: {{ cv.theme.accent }}; }
+</style>
+</head>
+<body>
+{% macro period(start, end, open_ended=True) -%}
+  {%- if start and end %}{{ start | ym }} – {{ end | ym(L.present) }}
+  {%- elif start %}{{ start | ym }}{% if open_ended %} – {{ L.present }}{% endif %}
+  {%- elif end %}{{ end | ym(L.present) }}{% endif -%}
+{%- endmacro %}
+
+{% macro entry(item, title_key="title", org_key="company") %}
+<div class="job">
+  <div class="row">
+    <div><span class="role">{{ item[title_key] }}</span>{% if item[org_key] %} — <span class="org">{{ item[org_key] }}</span>{% endif %}</div>
+    <div class="dates">{{ period(item.start, item.end) }}</div>
+  </div>
+  {% if item.location or item.context %}
+  <div class="row">
+    <div class="context">{{ item.context }}</div>
+    <div class="where">{{ item.location }}</div>
+  </div>
+  {% endif %}
+  {% if item.bullets %}<ul>{% for b in item.bullets %}<li>{{ b }}</li>{% endfor %}</ul>{% endif %}
+</div>
+{% endmacro %}
+
+<main>
+  <header>
+    <h1>{{ cv.person.name }}</h1>
+    <div class="headline">{{ cv.person.headline }}</div>
+    <div class="contact">
+      {%- for item in contact %}<span>{% if item.href %}<a href="{{ item.href }}">{{ item.text }}</a>{% else %}{{ item.text }}{% endif %}</span>{% endfor -%}
+    </div>
+  </header>
+
+{% for s in sections %}
+{% if s == "summary" and cv.summary %}
+  <section class="summary">
+    <h2>{{ L.summary }}</h2>
+    <p>{{ cv.summary }}</p>
+  </section>
+
+{% elif s == "highlights" and cv.highlights %}
+  <section class="highlights">
+    <h2>{{ L.highlights }}</h2>
+    <ul>{% for h in cv.highlights %}<li>{{ h }}</li>{% endfor %}</ul>
+  </section>
+
+{% elif s == "experience" and cv.experience %}
+  <section class="experience">
+    <h2>{{ L.experience }}</h2>
+    {% for job in cv.experience %}{{ entry(job) }}{% endfor %}
+  </section>
+
+{% elif s == "earlier_career" and cv.earlier_career %}
+  <section class="earlier">
+    <h2>{{ L.earlier_career }}</h2>
+    <ul class="plain">
+    {% for e in cv.earlier_career %}
+      <li class="row"><span><span class="role">{{ e.title }}</span>{% if e.company %} — {{ e.company }}{% endif %}</span><span class="dates">{{ period(e.start, e.end, False) }}</span></li>
+    {% endfor %}
+    </ul>
+  </section>
+
+{% elif s == "projects" and cv.projects %}
+  <section class="projects">
+    <h2>{{ L.projects }}</h2>
+    {% for p in cv.projects %}{{ entry(p, "title", "role") }}{% endfor %}
+  </section>
+
+{% elif s == "education" and cv.education %}
+  <section class="education">
+    <h2>{{ L.education }}</h2>
+    {% for e in cv.education %}
+    <div class="edu">
+      <div class="row">
+        <div><span class="role">{{ e.degree }}</span> — <span class="org">{{ e.institution }}</span></div>
+        <div class="dates">{{ period(e.start, e.end, False) }}</div>
+      </div>
+      {% if e.details %}<div class="context">{{ e.details }}</div>{% endif %}
+      {% if e.bullets %}<ul>{% for b in e.bullets %}<li>{{ b }}</li>{% endfor %}</ul>{% endif %}
+    </div>
+    {% endfor %}
+  </section>
+
+{% elif s == "volunteering" and cv.volunteering %}
+  <section class="volunteering">
+    <h2>{{ L.volunteering }}</h2>
+    {% for v in cv.volunteering %}{{ entry(v) }}{% endfor %}
+  </section>
+
+{% elif s == "skills" and cv.skills %}
+  <section class="skills">
+    <h2>{{ L.skills }}</h2>
+    {% for g in cv.skills %}
+    <div class="skill-group"><b>{{ g.group }}:</b> {{ g["items"] | join(", ") }}</div>
+    {% endfor %}
+  </section>
+
+{% elif s == "extras" and (cv.languages or cv.certifications) %}
+  <div class="two-col">
+    {% if cv.languages %}
+    <section class="languages">
+      <h2>{{ L.languages }}</h2>
+      <ul class="plain">{% for l in cv.languages %}<li>{{ l.name }} — {{ l.level }}</li>{% endfor %}</ul>
+    </section>
+    {% endif %}
+    {% if cv.certifications %}
+    <section class="certifications">
+      <h2>{{ L.certifications }}</h2>
+      <ul class="plain">{% for c in cv.certifications %}<li>{{ c.name }}{% if c.issuer %} — {{ c.issuer }}{% endif %}{% if c.year %} ({{ c.year }}){% endif %}</li>{% endfor %}</ul>
+    </section>
+    {% endif %}
+  </div>
+{% endif %}
+{% endfor %}
+
+  {% if cv.footer %}<footer>{{ cv.footer }}</footer>{% endif %}
+</main>
+</body>
+</html>

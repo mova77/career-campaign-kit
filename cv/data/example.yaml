@@ -1,0 +1,96 @@
+# Example CV — fictional person. Schema reference for master.yaml and per-application cv.yaml.
+# Required: lang, person.name, person.headline, experience (≥1 entry with title, company, start).
+
+lang: en
+
+# Career stage drives default section order and page budget:
+#   first-job | early | mid | senior | executive | returner | career-changer
+# Override the order with e.g. `sections: [summary, experience, education, skills, extras]`.
+# Section keys: summary, highlights, experience, earlier_career, projects, education,
+#               volunteering, skills, extras (= languages + certifications)
+stage: mid
+
+# Section labels — translate per CV; any omitted label falls back to English.
+labels:
+  summary: Profile
+  experience: Experience
+  education: Education
+  skills: Skills
+  languages: Languages
+  certifications: Certifications
+  present: present
+
+theme:
+  accent: "#1F5F8B"      # any CSS colour; keep contrast ≥ 4.5:1 on white
+
+person:
+  name: Alex Example
+  headline: Senior Project Manager · Digital Transformation · PMP
+  location: Warsaw, Poland
+  email: alex.example@example.com
+  phone: "+48 600 000 000"
+  linkedin: linkedin.com/in/alex-example
+  website: ""
+
+summary: >
+  Project manager with 9 years of experience delivering cross-functional programmes in
+  financial services. Led portfolios of up to 6 concurrent projects and teams of 15,
+  moving delivery from waterfall to hybrid agile. Looking for a programme or delivery
+  lead role in a product-driven organisation.
+
+experience:
+  - title: Senior Project Manager
+    company: Northwind Bank
+    location: Warsaw
+    start: 2021-03
+    end: present
+    context: Retail banking, 4,000 employees
+    bullets:
+      - Led the migration of 1.2M customer accounts to a new core-banking platform, delivered 3 weeks ahead of plan with zero critical incidents.
+      - Ran a portfolio of 6 concurrent projects (combined budget ≈ €3M) and a team of 15 across IT, compliance and operations.
+      - Introduced a hybrid agile delivery framework adopted by 4 departments; cut average release cycle from 8 to 3 weeks.
+  - title: Project Manager
+    company: Contoso Consulting
+    location: Kraków
+    start: 2017-06
+    end: 2021-02
+    bullets:
+      - Delivered 11 client implementation projects for insurance and banking clients across PL, DE and CZ.
+      - Recovered a failing CRM rollout by re-baselining scope with the client; project closed on revised budget.
+  - title: Business Analyst
+    company: Fabrikam
+    location: Kraków
+    start: 2015-09
+    end: 2017-05
+    bullets:
+      - Gathered and documented requirements for a claims-processing system used by 300 agents.
+
+education:
+  - degree: MSc Management
+    institution: University of Economics in Kraków
+    end: 2015
+
+skills:
+  - group: Delivery
+    items: [Programme & portfolio management, Hybrid agile, Risk management, Stakeholder management]
+  - group: Tools
+    items: [Jira, Confluence, MS Project, Power BI]
+
+languages:
+  - name: Polish
+    level: native
+  - name: English
+    level: C1
+  - name: German
+    level: B1
+
+certifications:
+  - name: PMP
+    issuer: PMI
+    year: 2019
+  - name: PSM I
+    issuer: Scrum.org
+    year: 2020
+
+# Optional footer, e.g. the data-processing consent clause commonly expected in Poland.
+footer: ""
